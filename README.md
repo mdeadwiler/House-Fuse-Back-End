@@ -1,5 +1,13 @@
 # Home Fuze
 
+![ERD](/images/ERD_Diagram.jpeg)
+
+## ***Team Members:***
+* George Sein
+* Zaire Elleby
+* Pete McKechnie
+ * Marquise Deadwiler
+
 ## ***About:***
 
 * Our project is a full-stack & job-posting platform that bridges the gap between homeowners and contractors for essential home services. With an intuitive interface, Home Fuze enables homeowners to post jobs for specific needs-like roofing, plumbing, electrical work, and remodeling. 
