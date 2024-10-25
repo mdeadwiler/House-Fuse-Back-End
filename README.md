@@ -2,7 +2,7 @@
 
 ![ERD](/images/ERD_Diagram.jpeg)
 
-## ***Team Members:***
+## ***Team Barry:***
 * George Sein
 * Zaire Elleby
 * Pete McKechnie
