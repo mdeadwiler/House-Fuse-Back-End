@@ -1,12 +1,12 @@
 # Home Fuze
 
-## ***About and How it Started:***
+## ***About:***
 
 * Our project is a full-stack & job-posting platform that bridges the gap between homeowners and contractors for essential home services. With an intuitive interface, Home Fuze enables homeowners to post jobs for specific needs-like roofing, plumbing, electrical work, and remodeling. 
 * Now, contractors can then browsw these listings and submit competitive bids. This includes, pricing, timelines, and contract information.
 * Designed with comprehensive CRUD functionalities, Home Fuze allows users to create, update, and delete job posts, bids, and comments, fostering an efficient and transparent space for home improvement services.
 
-***How it Started***
+***How it Started:***
 * This project was based on four entry level software engineers who wanted to build an impactful & practical application. Our goal was to address the communication challenges homeowners often face in finding reliable contractors, while giving contractors a centralized platform to access new job opportunities. With Home Fuze, we aimed to streamline the entire process-empowering homeowners and contractors to share job details, negotiate terms, and exchange feedback all in one place. Using our skills in React, MongoDB, and Express, we built Home Fuze to emphasize user-friendly navigation, organized data management, and a seamless bidding process that benefits all parties.
 
 ### ***Key Features***
@@ -37,6 +37,8 @@
 * User Interactions: Implement bid and comment forms.
 * Authentication: Add JWT login and role-based access.
 * Final Touches: Style UI, add feedback, test, and deploy (Heroku/Netlify).
+
+#### ***Future Enhancements***
 
 
 
