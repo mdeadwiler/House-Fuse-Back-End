@@ -6,7 +6,7 @@
 * George Sein
 * Zaire Elleby
 * Pete McKechnie
- * Marquise Deadwiler
+* Marquise Deadwiler
 
 ## ***About:***
 
