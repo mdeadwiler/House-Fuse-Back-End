@@ -1,5 +1,13 @@
 # Home Fuze
 
+![ERD](/images/ERD_Diagram.jpeg)
+
+## ***Team Barry:***
+* George Sein
+* Zaire Elleby
+* Pete McKechnie
+ * Marquise Deadwiler
+
 ## ***About:***
 
 * Our project is a full-stack & job-posting platform that bridges the gap between homeowners and contractors for essential home services. With an intuitive interface, Home Fuze enables homeowners to post jobs for specific needs-like roofing, plumbing, electrical work, and remodeling. 
@@ -62,14 +70,6 @@
 
 
 
-# React + Vite
-
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
 
 
@@ -87,13 +87,3 @@ Currently, two official plugins are available:
 
 
 
-
-
-# React + Vite
-
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
