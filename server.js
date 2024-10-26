@@ -5,7 +5,7 @@ import chalk from "chalk";
 import dotenv from "dotenv"
 dotenv.config();
 import cors from "cors";
-import createJobPost  from "./controllers/contractors.js";
+import createJobPost  from "./routes/contractor.js";
 
 
 const app = express()
