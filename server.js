@@ -15,6 +15,7 @@ app.use(logger("dev"));
 // Routes go here
 
 
+
 db.on("connected", () => {
     console.clear()
     console.log(chalk.blue("Connected to MongoDB!"));
