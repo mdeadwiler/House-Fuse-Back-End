@@ -1,4 +1,5 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
+
 
 const jobPostSchema = new mongoose.Schema({
     title: {
@@ -38,45 +39,21 @@ const jobPostSchema = new mongoose.Schema({
         type: String,
         enum: ['open', 'in-progress', 'completed'],
         default: 'open'
+    },
+    comments:{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Comment"
     }
     });
 
-    const commentSchema = new mongoose.Schema({
-        content: {
-            type: String,
-            required: true,
-            default: "Enter your comment here",
-        },
-        author: {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: 'User',
-            required: true
-        },
-        jobPost: {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: 'JobPost',
-            required: true
-        },
-        dateCreated: {
-            type: Date,
-            default: Date.now
-        },
-    });
+ 
     
-    const JobPost = mongoose.model('JobPost', jobPostSchema);
-    const Comment = mongoose.model('Comment', commentSchema);
     
-    module.exports = { JobPost, Comment };
 
-// to get the job post with complete user informatoin:
+    
 
-// const jobPost = await JobPost.findById(postId).populate('postedBy')
-// see postedBy line 11
-// 
 
-//to get comments with full user details:
 
-// const comments = await Comment.find({ jobPost: jobPostId })
-//     .populate('author')
-//     .sort({ dateCreated: -1 });
+    export default mongoose.model("JobPost", jobPostSchema);
+    
 
