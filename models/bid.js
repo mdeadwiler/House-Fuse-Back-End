@@ -34,4 +34,4 @@ const bidSchema = new mongoose.Schema({
     }
 });
 
-module.exports = mongoose.model("Bid", bidSchema);
+export default mongoose.model("Bid", bidSchemaSchema);
