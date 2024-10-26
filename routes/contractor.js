@@ -8,7 +8,7 @@ const router = Router();
 
 
 // POST /jobs - for homeowners to create a job post.
-router.post("/", controllers.createJobPost);
+router.post("/jobs", controllers.createJobPost);
 
 // GET /jobs/:id - to fetch job details including bids and comments.
 router.get("/jobs/:id", controllers.jobPost);
