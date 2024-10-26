@@ -12,4 +12,4 @@ import JobPost from "../model/jobPost.js";
 
 
 
-//router.get("/jobs/:id", controllers.getJob);
+router.get("/jobs/:id", controllers.getJob);
