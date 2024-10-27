@@ -5,7 +5,7 @@ import chalk from "chalk";
 import dotenv from "dotenv"
 dotenv.config();
 import cors from "cors";
-import createJobPost  from "./routes/contractor.js";
+import jobrouter  from "./routes/contractor.js";
 
 
 const app = express()
@@ -14,7 +14,7 @@ app.use(cors());
 app.use(express.json());
 app.use(logger("dev"));
 // Routes go here
-app.post("/jobs", createJobPost);
+app.use("/jobs", jobrouter);
 
 
 
