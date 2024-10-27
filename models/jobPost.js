@@ -1,6 +1,5 @@
 import mongoose from 'mongoose';
 
-
 const jobPostSchema = new mongoose.Schema({
     title: {
         type: String,
@@ -12,7 +11,8 @@ const jobPostSchema = new mongoose.Schema({
     postedBy: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User',
-        required: true,
+        //testing purposes, remove later
+        required: false,
     },
     dateCreated: {
         type: Date, 
@@ -25,12 +25,12 @@ const jobPostSchema = new mongoose.Schema({
         minlength: 10,
         maxlength: 5000,
     },
-        category: {
+    category: {
             type: String, 
             enum: ['roofing', 'electrical', 'plumbing', 'flooring', 'landscaper', 'carpentry', 'general', 'other'],
             required: true,
     },
-        location: {
+    location: {
             type: String,
             required: false,
             default: "Enter the address of your job",
@@ -42,17 +42,17 @@ const jobPostSchema = new mongoose.Schema({
     },
     comments:{
         type: mongoose.Schema.Types.ObjectId,
-        ref: "Comment"
-    }
+        ref: "Comment",
+        //testing purposes, will be removed later
+        required: false,
+    },
+    bids: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Bid',
+        //testing purposes, will be removed later
+        required: false,
+      }]
     });
-
- 
-    
-    
-
-    
-
-
 
     export default mongoose.model("JobPost", jobPostSchema);
     
