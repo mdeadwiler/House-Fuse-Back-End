@@ -5,18 +5,29 @@ import chalk from "chalk";
 import dotenv from "dotenv"
 dotenv.config();
 import cors from "cors";
-import createJobPost  from "./routes/contractor.js";
+import createBid from "./routes/bids.js"
+import addBidComment from "./routes/bids.js"
+import createJobPost from "./routes/contractor.js"
+import getJobPost from "./routes/contractor.js"
+
+const app = express();
 
 
-const app = express()
-const PORT = process.env.PORT || 3000
 app.use(cors());
 app.use(express.json());
 app.use(logger("dev"));
-// Routes go here
-app.post("/jobs", createJobPost);
+
+// app.post("/jobs", createJobPost);
+
+//Mounting routes
+
+app.use('/api', createBid);
+app.use('/api', createJobPost);
+app.use('/api', getJobPost);
+app.use('/api', addBidComment);
 
 
+const PORT = process.env.PORT || 3000
 
 db.on("connected", () => {
     console.clear()

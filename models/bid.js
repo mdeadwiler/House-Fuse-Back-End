@@ -1,37 +1,42 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 
 const bidSchema = new mongoose.Schema({
-    contractor: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "User",
-        required: true,
-    },
-    jobPost: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "JobPost",
-        required: true
-    },
-    bidAmount: {
-        type: Number,
-        required: true,
-    },
-    bidDate: {
-        type: Date,
-        default: Date.now,
-    },
-    jobStartDate: {
-        startDate: Date,
-        required: true,
-    },
-    jobEndDate: {
-        endDate: Date,
-        required: true,
-    },
-    status: {
-        type: String,
-        enum: ['pending', 'accepted', 'rejected'],
-        default: 'pending'
-    }
+  jobPost: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "JobPost",
+    required: true
+  },
+  contractorId: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "User",
+    //testing change back to true later
+    required: false
+  },
+  bidAmount: {
+    type: Number,
+    //testing change back to true later
+    required: false
+  },
+  bidDate: {
+    type: Date,
+    default: Date.now,
+  },
+  jobStartDate: {
+    type: Date,
+    //testing change back to true later           
+    required: false,       
+  },
+  jobEndDate: {
+    type: Date,       
+    //testing change back to true later
+    required: false, 
+  },
+  status: {
+    type: String,
+    enum: ["pending", "accepted", "rejected"],
+    default: "pending"
+  },
+  comments: [{ type: mongoose.Schema.Types.ObjectId, ref: "Comment" }],
 });
 
-export default mongoose.model("Bid", bidSchemaSchema);
+export default mongoose.model("Bid", bidSchema);
