@@ -43,3 +43,5 @@ export const getJobPost = async (req, res) => {
   }
 }
 
+// /job/<id>/comment POST
+// body {content, userid, jobId }
