@@ -1,7 +1,6 @@
 import { Router } from "express";
-import * as controllers from "../controllers/contractors.js";
-import * as comment from "../controllers/comment.js"
-
+import * as controllers from "../controllers/contractorController.js";
+//import * as comment from "../controllers/comment.js"
 
 const router = Router();
 
@@ -19,7 +18,7 @@ router.get("/jobPosts/:jobPostId", controllers.getJobPost);
 
 
 // POST /jobs/:id/bid - for contractors to bid on a job.
-// POST /jobs/:id/comment - to add comments on a job.
-router.post("/:id/comment", comment.createComment)
+ //POST /jobs/:id/comment - to add comments on a job.
+//router.post("/:id/comment", comment.createComment)
 
 export default router;
