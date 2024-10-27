@@ -1,3 +1,4 @@
+
 import mongoose from "mongoose";
 
 
@@ -5,17 +6,26 @@ const commentSchema = new mongoose.Schema({
     content: {
         type: String,
         required: true,
-        default: "Enter your comment here",
+        default: "Enter your comment here"
     },
-    author: {
+    userId: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User',
-        required: true
+        //testing purposes, will be removed later
+        required: false
     },
-    jobPost: {
+    //dyanmic references, so we can attach coments to either job posts or bids and keep organized data relationships
+    parentType: {
+        type: String,
+        enum: ['JobPost', 'Bid'],
+        //testing purposes, will be removed later
+        required: false
+    },
+    parentId: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'JobPost',
-        required: true
+        //testing purposes, will be removed later
+        required: false,
+        refPath: 'parentType'
     },
     dateCreated: {
         type: Date,
