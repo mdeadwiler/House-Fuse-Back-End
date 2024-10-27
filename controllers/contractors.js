@@ -1,3 +1,4 @@
+// This is updated from dev branch
 import JobPost from "../models/jobPost.js";
 
 export const createJobPost = async (req, res) => {
