@@ -1,13 +1,12 @@
-const express = require("express");
-const router = express.Router();
-const bcrypt = require("bcrypt");
-const jwt = require("jsonwebtoken");
-const User = require("../models/user");
+import bcrypt from "bcrypt";
+import User from "./models/user.js";
+import jwt from "jsonwebtoken";
 
 const SALT_LENGTH = 12;
+// This is updated from dev branch AFTER FIXING FROM COMMONJS TO (ECMASCRIPT 6)ES6 SYNTAX 
 
 // Signup route
-router.post("/signup", async (req, res) => {
+export const signup = ("/signup", async (req, res) => {
   try {
     const { email, username, password, isHomeowner } = req.body;
 
@@ -51,7 +50,7 @@ router.post("/signup", async (req, res) => {
 });
 
 // Signin route
-router.post("/signin", async (req, res) => {
+export const signin = ("/signin", async (req, res) => {
   try {
     const { username, password } = req.body;
 
@@ -79,4 +78,4 @@ router.post("/signin", async (req, res) => {
   }
 });
 
-module.exports = router;
+

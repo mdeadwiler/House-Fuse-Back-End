@@ -27,6 +27,8 @@ app.use('/api', createBid);
 app.use('/api', createJobPost);
 app.use('/api', getJobPost);
 app.use('/api', addBidComment);
+app.use('/api', signin);
+app.use('/api', signup);
 
 
 const PORT = process.env.PORT || 3000
