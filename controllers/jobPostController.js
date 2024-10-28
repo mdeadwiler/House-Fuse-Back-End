@@ -10,7 +10,7 @@ export const createJobPost = async (req, res) => {
   }
 };
 
-
+//DO NOT DELETE THIS CODE
 // export const createJobPost = async (req, res) => {
 //     try {
 //       console.log("Request Body:", req.body); // Check incoming data
