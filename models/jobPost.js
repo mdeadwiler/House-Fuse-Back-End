@@ -40,12 +40,12 @@ const jobPostSchema = new mongoose.Schema({
         enum: ['open', 'in-progress', 'completed'],
         default: 'open'
     },
-    comments:{
+    comments: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: "Comment",
         //testing purposes, will be removed later
         required: false,
-    },
+    }],
     bids: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Bid',

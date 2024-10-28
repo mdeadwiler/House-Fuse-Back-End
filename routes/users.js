@@ -1,7 +1,7 @@
-import { router } from "express";
-import * as controllers from "../controllers/usersController";
+import { Router } from "express";
+import * as controllers from "../controllers/usersController.js";
 
-
+const router = Router();
 
 router.post("/signup", controllers.signup);
 

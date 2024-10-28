@@ -1,13 +1,15 @@
 import Bid from '../models/bid.js';
 import JobPost from '../models/jobPost.js';
-import Comment from '../models/comment.js';
+// import Comment from '../models/comment.js';
 
 //handling all logic for creating, reading, updating, deleting bids (CRUD)
 
 //creating bid with reference to jobs and contractors
 export const createBid = async (req, res) => {
     try {
+        //get job post ID from route parameter
         const { jobPostId } = req.params;
+        //bid details from request body to us later so it's easier
         const { contractorId, bidAmount, jobStartDate, jobEndDate } = req.body;
 
         const jobPost = await JobPost.findById(jobPostId);
@@ -24,7 +26,8 @@ export const createBid = async (req, res) => {
         });
 
         await bid.save();
-        await jobPost.bids.push(bid._id);
+        //push bid id to the bids array in jobPost document
+        jobPost.bids.push(bid._id);
         await jobPost.save();
 
         res.status(201).json(bid);
@@ -33,27 +36,28 @@ export const createBid = async (req, res) => {
     }
 };
 
-//creating a bid comment
-export const addBidComment = async (req, res) => {
-    try {
-        const { bidId } = req.params;
-        const { content, userId } = req.body;
+// //creating a bid comment
+// export const addBidComment = async (req, res) => {
+//     try {
+//         const { bidId } = req.params;
+//         const { content, userId } = req.body;
 
-        const comment = new Comment({
-            content,
-            userId,
-            parentType: 'Bid',
-            parentId: bidId,
-        });
-        await comment.save();
+//         const comment = new Comment({
+//             content,
+//             userId,
+//             parentType: 'Bid',
+//             parentId: bidId,
+//             dateCreated,
+//         });
+//         await comment.save();
 
-        const bid = await Bid.findById(bidId);
-        await bid.comments.push(comment._id);
-        await bid.save();
+//         const bid = await Bid.findById(bidId);
+//         await bid.comments.push(comment._id);
+//         await bid.save();
 
-        res.status(201).json(comment);
-    } catch (error) {
-        res.status(500).json({ error: error.message });
-    }
-};
+//         res.status(201).json(comment);
+//     } catch (error) {
+//         res.status(500).json({ error: error.message });
+//     }
+// };
 
