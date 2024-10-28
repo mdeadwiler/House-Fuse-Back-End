@@ -51,17 +51,17 @@ const userSchema = new mongoose.Schema({
 
 // This will allow a hashedPassword through bcrypt for the user authentication
 // We had to use this method because we are using "This." and arrow functions do not work with "This." because it has no source to pull documents(data)
-userSchema.pre('save', async function(next) {
-  if (!this.isModified('hashedPassword')) 
-    return next();
- try {
-    const saltRounds = 10;
-    this.hashedPassword = bcrypt.hash(this.hashedPassword, saltRounds);
-    next();
-  } catch (error) {
-    next(error);
-  }
-});
+// userSchema.pre('save', async function(next) {
+//   if (!this.isModified('hashedPassword')) 
+//     return next();
+//  try {
+//     const saltRounds = 10;
+//     this.hashedPassword = bcrypt.hash(this.hashedPassword, saltRounds);
+//     next();
+//   } catch (error) {
+//     next(error);
+//   }
+// });
 
 
 

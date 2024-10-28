@@ -8,6 +8,7 @@ import jwt from "jsonwebtoken";
 // Signup route
 export const signup = ("/signup", async (req, res) => {
   try {
+    console.log("I'm here in signup")
     const { username, password , email, firstName, lastName, isHomeOwner, contractorCompany, contractorCategory } = req.body;
 
     // Check if email is already taken
@@ -22,12 +23,12 @@ export const signup = ("/signup", async (req, res) => {
       return res.status(400).json({ error: "Username is already taken." });
     }
 
-   
+   const hashedPassword = await bcrypt.hash(password, 10)
 
     // Create a new user with isHomeowner field
     const newUser = await User.create({
       username,
-      hasedPassword: password,
+      hashedPassword,
       email,
       firstName,
       lastName,
@@ -48,6 +49,7 @@ export const signup = ("/signup", async (req, res) => {
 
     res.status(201).json({ user: newUser, token });
   } catch (error) {
+    console.log("I made a boo boo")
     res.status(400).json({ error: error.message });
   }
 });
