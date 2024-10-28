@@ -1,14 +1,14 @@
 import bcrypt from "bcrypt";
-import User from "./models/user.js";
+import User from "../models/user.js";
 import jwt from "jsonwebtoken";
 
-const SALT_LENGTH = 12;
+
 // This is updated from dev branch AFTER FIXING FROM COMMONJS TO (ECMASCRIPT 6)ES6 SYNTAX 
 
 // Signup route
 export const signup = ("/signup", async (req, res) => {
   try {
-    const { email, username, password, isHomeowner } = req.body;
+    const { username, password , email, firstName, lastName, isHomeOwner, contractorCompany, contractorCategory } = req.body;
 
     // Check if email is already taken
     const existingEmail = await User.findOne({ email });
@@ -22,15 +22,18 @@ export const signup = ("/signup", async (req, res) => {
       return res.status(400).json({ error: "Username is already taken." });
     }
 
-    // Hash the password
-    const hashedPassword = bcrypt.hashSync(password, SALT_LENGTH);
+   
 
     // Create a new user with isHomeowner field
     const newUser = await User.create({
-      email,
       username,
-      hashedPassword,
-      isHomeowner,
+      hasedPassword: password,
+      email,
+      firstName,
+      lastName,
+      isHomeOwner,
+      contractorCompany,
+      contractorCategory,
     });
 
     // Generate JWT for the new user (without expiration)
@@ -38,7 +41,7 @@ export const signup = ("/signup", async (req, res) => {
       {
         username: newUser.username,
         _id: newUser._id,
-        isHomeowner: newUser.isHomeowner,
+        isHomeOwner: newUser.isHomeOwner,
       },
       process.env.JWT_SECRET
     );
@@ -68,7 +71,7 @@ export const signin = ("/signin", async (req, res) => {
 
     // Generate JWT for the user (without expiration)
     const token = jwt.sign(
-      { username: user.username, _id: user._id, isHomeowner: user.isHomeowner },
+      { username: user.username, _id: user._id, isHomeOwner: user.isHomeOwner },
       process.env.JWT_SECRET
     );
 
