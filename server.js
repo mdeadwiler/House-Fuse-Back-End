@@ -5,8 +5,6 @@ import chalk from "chalk";
 import dotenv from "dotenv"
 dotenv.config();
 import cors from "cors";
-
-import bidsRouter from "./routes/bids.js";
 import jobPostsRouter from "./routes/jobPosts.js";
 import usersRouter from "./routes/users.js";
 
@@ -16,11 +14,8 @@ app.use(cors());
 app.use(express.json());
 app.use(logger("dev"));
 
-//Mounting routes
-app.use('/api', bidsRouter);
-app.use('/api', jobPostsRouter);
-app.use('/api', usersRouter); 
-
+app.use('/api/jobPosts', jobPostsRouter);
+app.use('/api/users', usersRouter); 
 
 const PORT = process.env.PORT || 3000
 

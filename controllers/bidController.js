@@ -11,7 +11,8 @@ export const createBid = async (req, res) => {
         //get job post ID from route parameter
         const { jobPostId } = req.params;
         //bid details from request body to us later so it's easier
-        const { contractor, bidAmount, jobStartDate, jobEndDate } = req.body;
+        const { bidAmount, jobStartDate, jobEndDate } = req.body; 
+        const { _id: userId} = req.user;
 
         const jobPost = await JobPost.findById(jobPostId);
         if (!jobPost) {
@@ -20,7 +21,7 @@ export const createBid = async (req, res) => {
 
         const bid = new Bid({
             jobPost: jobPostId,
-            contractor,
+            contractor: userId,
             bidAmount,
             jobStartDate,
             jobEndDate,

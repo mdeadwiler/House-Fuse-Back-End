@@ -1,23 +1,23 @@
 import { Router } from "express";
 import * as jobPostControllers from "../controllers/jobPostController.js";
 import * as commentControllers from "../controllers/commentController.js";
+import * as bidControllers from "../controllers/bidController.js";
+import verifyToken from "../middleware/verify-token.js";
+import authorizedUser from "../middleware/authorized-user.js";
 
 const router = Router();
 
+// Job Post Routes
+router.get("/", jobPostControllers.getJobPosts) // GET /api/jobPosts => Returns all Job Posts
+router.get("/:jobPostId", jobPostControllers.getJobPost); // GET /api/jobPosts/:jobPostId => Returns a Job Post with associated comments and bids [params]
+router.post("/", verifyToken, jobPostControllers.createJobPost); // POST /api/jobPosts - Creates a Job Post. [body]
+router.delete("/:jobPostId", authorizedUser, jobPostControllers.deleteJobPost); // DELETE /api/jobPosts/:jobPostId => Deletes Job Post. [params]
+router.put("/:jobPostId", authorizedUser, jobPostControllers.updateJobPost); // PUT /api/jobPosts/:jobPostId => Updates a Job Post. [params, body]
 
-// POST /jobs - for homeowners to create a job post.
-router.post("/jobPosts", jobPostControllers.createJobPost);
+// Bid Routes
+router.post("/:jobPostId/bids", verifyToken, bidControllers.createBid); // POST /api/jobPosts/:jobPostId/bids => Creates a Bid that belongs to a Job Post [params, body]
 
-// GET /jobs/:id - to fetch job details including bids and comments.
-router.get("/jobPosts/:jobPostId", jobPostControllers.getJobPost);
-
-// POST to add comments on job posts
-router.post("/jobPosts/:jobPostId/comments", commentControllers.addComment);
-
-// PUT update comments
-router.put("/jobPosts/:jobPostId/:commentId", commentControllers.updateComment);
-
-//DEL comments
-router.delete("/jobPosts/:jobPostId/:commentId", commentControllers.deleteComment)
+// Comment Routes
+router.post("/:jobPostId/comments", verifyToken, commentControllers.addComment); // POST /api/jobPosts/:jobPostId/comments => Creates a comment that belongs to a Job Post [params, body]
 
 export default router;

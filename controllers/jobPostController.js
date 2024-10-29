@@ -34,6 +34,8 @@ export const getJobPost = async (req, res) => {
 
 export const createJobPost = async (req, res) => {
   try {
+    const { _id: userId } = req.user;
+    req.body.postedBy = userId;
     const newJobPost = await JobPost.create(req.body);
     res.status(201).json(newJobPost);
   } catch (error) {
