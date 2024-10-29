@@ -6,37 +6,33 @@ const bidSchema = new mongoose.Schema({
     ref: "JobPost",
     required: true
   },
-  contractorId: {
+  contractor: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "User",
-    //testing change back to true later
-    required: false
+    required: true,
   },
   bidAmount: {
     type: Number,
-    //testing change back to true later
-    required: false
+    required: true
   },
   bidDate: {
     type: Date,
     default: Date.now,
   },
   jobStartDate: {
-    type: Date,
-    //testing change back to true later           
-    required: false,       
+    type: Date,           
+    required: true,       
   },
   jobEndDate: {
     type: Date,       
-    //testing change back to true later
-    required: false, 
+    required: true, 
   },
   status: {
     type: String,
     enum: ["pending", "accepted", "rejected"],
     default: "pending"
   },
-  comments: [{ type: mongoose.Schema.Types.ObjectId, ref: "Comment" }],
+  //comments: [{ type: mongoose.Schema.Types.ObjectId, ref: "Comment" }],
 });
 
 export default mongoose.model("Bid", bidSchema);
