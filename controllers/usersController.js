@@ -4,6 +4,8 @@ import jwt from "jsonwebtoken";
 import dotenv from "dotenv"
 dotenv.config();
 
+
+
 // This is updated from dev branch AFTER FIXING FROM COMMONJS TO (ECMASCRIPT 6)ES6 SYNTAX 
 
 // Signup route
@@ -23,8 +25,6 @@ export const signup = ("/signup", async (req, res) => {
       return res.status(400).json({ error: "Username is already taken." });
     }
 
-   const hashedPassword = await bcrypt.hash(password, parseInt(process.env.SALT_ROUNDS))
-
    const userData = {
     username,
     hashedPassword,
@@ -41,6 +41,9 @@ export const signup = ("/signup", async (req, res) => {
 
     // Create a new user with isHomeowner field
     const newUser = await User.create(userData);
+
+   const hashedPassword = await bcrypt.hash(password, parseInt(process.env.SALT_ROUNDS))
+   
 
     // Generate JWT for the new user (without expiration)
     const token = jwt.sign(
