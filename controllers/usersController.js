@@ -25,26 +25,25 @@ export const signup = ("/signup", async (req, res) => {
       return res.status(400).json({ error: "Username is already taken." });
     }
 
+   const userData = {
+    username,
+    hashedPassword,
+    email,
+    firstName,
+    lastName,
+    isHomeOwner,
+   }
+
+   if (!isHomeOwner){
+    userData.contractorCompany = contractorCompany
+    userData.contractorCategory = contractorCategory
+   }
+
+    // Create a new user with isHomeowner field
+    const newUser = await User.create(userData);
 
    const hashedPassword = await bcrypt.hash(password, parseInt(process.env.SALT_ROUNDS))
-   // Create a new user with isHomeowner field
-    const newUser = await User.create({
-      username,
-
-      hashedPassword,
-      
-      hasedPassword: password,
-
-      email,
-      firstName,
-      lastName,
-      isHomeOwner,
-      contractorCompany: isHomeOwner ? "" : contractorCompany,
-      contractorCategory: isHomeOwner ? "" : contractorCategory,
-      contractorCompany,
-      contractorCategory,
-
-    });
+   
 
     // Generate JWT for the new user (without expiration)
     const token = jwt.sign(

@@ -1,10 +1,14 @@
 import JobPost from "../models/jobPost.js";
-import Bid from "../models/bids.js";
+import Bid from "../models/bid.js";
 import Comment from "../models/comment.js";
 
 export const getJobPosts = async (req, res) => {
   try {
-    const jobPosts = await JobPost.find({})
+    const jobPosts = await JobPost.find({}).populate({
+      path: "postedBy",
+      select: "_id username"
+    })
+
     res.json(jobPosts)
   } catch (error) {
     console.error("Error fetching job posts:", error.message);
@@ -15,9 +19,19 @@ export const getJobPosts = async (req, res) => {
 export const getJobPost = async (req, res) => {
   try {
     // Find job post by ID
-    const jobPost = await JobPost.findById(req.params.jobPostId)
-    const bids = await Bid.find({jobPost: jobPost._id}) // Find all bid by jobPost ID
+    const jobPost = await JobPost.findById(req.params.jobPostId).populate({
+      path: "postedBy",
+      select: "_id username firstName lastName email"
+    })
+    const bids = await Bid.find({jobPost: jobPost._id}).populate({
+      path: "contractor",
+      select: "_id username firstName lastName email contractorCompany"
+    }) // Find all bid by jobPost ID
     const comments = await Comment.find({jobPost: jobPost._id  })
+    .populate({
+      path: "userId",
+      select: "_id username"
+    })
 
     // Check if job post exists
     if (!jobPost) {

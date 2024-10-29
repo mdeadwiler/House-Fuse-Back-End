@@ -9,7 +9,7 @@ export const addComment = async (req, res) => {
     const comment = new Comment({
       content,
       userId,
-      jobPostId
+      jobPost: jobPostId
     });
 
     await comment.save();
