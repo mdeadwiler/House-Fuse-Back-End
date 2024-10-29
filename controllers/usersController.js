@@ -1,6 +1,9 @@
 import bcrypt from "bcrypt";
 import User from "../models/user.js";
 import jwt from "jsonwebtoken";
+import dotenv from "dotenv"
+dotenv.config();
+
 
 
 // This is updated from dev branch AFTER FIXING FROM COMMONJS TO (ECMASCRIPT 6)ES6 SYNTAX 
@@ -22,18 +25,25 @@ export const signup = ("/signup", async (req, res) => {
       return res.status(400).json({ error: "Username is already taken." });
     }
 
-   
 
-    // Create a new user with isHomeowner field
+   const hashedPassword = await bcrypt.hash(password, parseInt(process.env.SALT_ROUNDS))
+   // Create a new user with isHomeowner field
     const newUser = await User.create({
       username,
+
+      hashedPassword,
+      
       hasedPassword: password,
+
       email,
       firstName,
       lastName,
       isHomeOwner,
+      contractorCompany: isHomeOwner ? "" : contractorCompany,
+      contractorCategory: isHomeOwner ? "" : contractorCategory,
       contractorCompany,
       contractorCategory,
+
     });
 
     // Generate JWT for the new user (without expiration)
@@ -46,7 +56,7 @@ export const signup = ("/signup", async (req, res) => {
       process.env.JWT_SECRET
     );
 
-    res.status(201).json({ user: newUser, token });
+    res.status(201).json({ token });
   } catch (error) {
     res.status(400).json({ error: error.message });
   }

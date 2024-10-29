@@ -3,6 +3,12 @@ import bcrypt from "bcrypt";
 const userSchema = new mongoose.Schema({
   username: {
     type: String,
+    required: true,
+
+import bcrypt from "bcrypt";
+const userSchema = new mongoose.Schema({
+  username: {
+    type: String,
     required: false,
     unique: false,
     default: "Choose a username",
@@ -10,10 +16,24 @@ const userSchema = new mongoose.Schema({
   hashedPassword: {
     type: String,
     required: true,
-    default: "Choose a password",
   },
   email: {
     type: String,
+    required: true,
+    unique: true,
+  },
+  firstName: {
+    type: String,
+    required: true,
+  },
+  lastName: {
+    type: String,
+    required: true,
+  },
+  isHomeOwner: {
+    type: Boolean,
+    default: true,
+    required: true,
     required: false,
     unique: false,
     default: "Enter your email address",
@@ -38,30 +58,24 @@ const userSchema = new mongoose.Schema({
     required: function () {
       return !this.isHomeOwner;
     },
-    default: "Enter your company name",
   },
   contractorCategory: {
-    type: String, 
-    enum: ['roofing', 'electrical', 'plumbing', 'flooring', 'landscaper', 'general', 'other'],
+    type: String,
+    enum: [
+      "roofing",
+      "electrical",
+      "plumbing",
+      "flooring",
+      "landscaper",
+      "general",
+      "other",
+    ],
     required: function () {
       return !this.isHomeOwner;
     },
   },
 });
 
-// This will allow a hashedPassword through bcrypt for the user authentication
-// We had to use this method because we are using "This." and arrow functions do not work with "This." because it has no source to pull documents(data)
-userSchema.pre('save', async function(next) {
-  if (!this.isModified('hashedPassword')) 
-    return next();
- try {
-    const saltRounds = 10;
-    this.hashedPassword = bcrypt.hash(this.hashedPassword, saltRounds);
-    next();
-  } catch (error) {
-    next(error);
-  }
-});
 
 
 
