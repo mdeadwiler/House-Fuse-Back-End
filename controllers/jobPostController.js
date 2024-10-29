@@ -1,5 +1,5 @@
 import JobPost from "../models/jobPost.js";
-import Bid from "../models/bids.js";
+import Bid from "../models/bid.js";
 import Comment from "../models/comment.js";
 
 export const getJobPosts = async (req, res) => {
