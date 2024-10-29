@@ -1,9 +1,17 @@
 import mongoose from "mongoose";
-
+import bcrypt from "bcrypt";
 const userSchema = new mongoose.Schema({
   username: {
     type: String,
     required: true,
+
+import bcrypt from "bcrypt";
+const userSchema = new mongoose.Schema({
+  username: {
+    type: String,
+    required: false,
+    unique: false,
+    default: "Choose a username",
   },
   hashedPassword: {
     type: String,
@@ -26,6 +34,23 @@ const userSchema = new mongoose.Schema({
     type: Boolean,
     default: true,
     required: true,
+    required: false,
+    unique: false,
+    default: "Enter your email address",
+  },
+  firstName: {
+    type: String,
+    required: false,
+    default: "Enter your first name",
+  },
+  lastName: {
+    type: String,
+    required: false,
+    default: "Enter your last name",
+  },
+  isHomeOwner: {
+    type: Boolean,
+    default: true
   },
   // Contractor-only fields
   contractorCompany: {
@@ -50,5 +75,8 @@ const userSchema = new mongoose.Schema({
     },
   },
 });
+
+
+
 
 export default mongoose.model("User", userSchema);
