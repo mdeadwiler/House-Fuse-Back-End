@@ -5,12 +5,14 @@ import JobPost from '../models/jobPost.js';
 //handling all logic for creating, reading, updating, deleting bids (CRUD)
 
 //creating bid with reference to jobs and contractors
+
 export const createBid = async (req, res) => {
     try {
         //get job post ID from route parameter
         const { jobPostId } = req.params;
         //bid details from request body to us later so it's easier
-        const { contractorId, bidAmount, jobStartDate, jobEndDate } = req.body;
+        const { bidAmount, jobStartDate, jobEndDate } = req.body; 
+        const { _id: userId} = req.user;
 
         const jobPost = await JobPost.findById(jobPostId);
         if (!jobPost) {
@@ -19,16 +21,13 @@ export const createBid = async (req, res) => {
 
         const bid = new Bid({
             jobPost: jobPostId,
-            contractor: contractorId,
-            amount: bidAmount,
-            startDate: jobStartDate,
-            endDate: jobEndDate,
+            contractor: userId,
+            bidAmount,
+            jobStartDate,
+            jobEndDate,
         });
 
         await bid.save();
-        //push bid id to the bids array in jobPost document
-        jobPost.bids.push(bid._id);
-        await jobPost.save();
 
         res.status(201).json(bid);
     } catch (error) {
@@ -36,28 +35,5 @@ export const createBid = async (req, res) => {
     }
 };
 
-// //creating a bid comment
-// export const addBidComment = async (req, res) => {
-//     try {
-//         const { bidId } = req.params;
-//         const { content, userId } = req.body;
-
-//         const comment = new Comment({
-//             content,
-//             userId,
-//             parentType: 'Bid',
-//             parentId: bidId,
-//             dateCreated,
-//         });
-//         await comment.save();
-
-//         const bid = await Bid.findById(bidId);
-//         await bid.comments.push(comment._id);
-//         await bid.save();
-
-//         res.status(201).json(comment);
-//     } catch (error) {
-//         res.status(500).json({ error: error.message });
-//     }
-// };
+// [TBU] DELETE and PUT bids
 
