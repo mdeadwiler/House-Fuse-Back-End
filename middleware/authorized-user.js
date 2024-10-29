@@ -10,7 +10,7 @@ async function authorizedUser(req, res, next) {
 
     const jobPost = await JobPost.findById(req.params.jobPostId)
 
-    if (jobPost.postedBy !== user._id) {
+    if (jobPost.postedBy.toString() !== user._id) {
       return res.status(404).json({ error: "Not Authorized." });
     }
  

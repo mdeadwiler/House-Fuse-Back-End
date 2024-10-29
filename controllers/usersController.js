@@ -25,17 +25,22 @@ export const signup = ("/signup", async (req, res) => {
 
    const hashedPassword = await bcrypt.hash(password, parseInt(process.env.SALT_ROUNDS))
 
+   const userData = {
+    username,
+    hashedPassword,
+    email,
+    firstName,
+    lastName,
+    isHomeOwner,
+   }
+
+   if (!isHomeOwner){
+    userData.contractorCompany = contractorCompany
+    userData.contractorCategory = contractorCategory
+   }
+
     // Create a new user with isHomeowner field
-    const newUser = await User.create({
-      username,
-      hashedPassword,
-      email,
-      firstName,
-      lastName,
-      isHomeOwner,
-      contractorCompany: isHomeOwner ? "" : contractorCompany,
-      contractorCategory: isHomeOwner ? "" : contractorCategory,
-    });
+    const newUser = await User.create(userData);
 
     // Generate JWT for the new user (without expiration)
     const token = jwt.sign(
