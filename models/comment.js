@@ -11,17 +11,11 @@ const commentSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User',
         required: true
-    },
-    //dyanmic references, so we can attach coments to either job posts or bids and keep organized data relationships
-    parentType: {
-        type: String,
-        enum: ['JobPost', 'Bid'],
-        required: true
-    },
-    parentId: {
+    },    
+    jobPost: {
         type: mongoose.Schema.Types.ObjectId,
         required: true,
-        refPath: 'parentType'
+        ref: 'JobPost'
     },
     dateCreated: {
         type: Date,
