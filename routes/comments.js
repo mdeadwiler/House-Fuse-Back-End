@@ -9,4 +9,4 @@ const router = Router();
 router.delete("/:commentId", authorizedUser, commentControllers.deleteComment); // DELETE /api/comments/:commentId => Deletes Comment. [params]
 router.put("/:commentId", authorizedUser, commentControllers.updateComment); // PUT /api/comments/:commentId => Updates a Comment. [params, body]
 
-export default Router;
+export default router;
