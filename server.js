@@ -7,6 +7,7 @@ dotenv.config();
 import cors from "cors";
 import jobPostsRouter from "./routes/jobPosts.js";
 import usersRouter from "./routes/users.js";
+import commentsRouter from "./routes/comments.js"
 
 const app = express();
 
@@ -16,6 +17,7 @@ app.use(logger("dev"));
 
 app.use('/api/jobPosts', jobPostsRouter);
 app.use('/api/users', usersRouter); 
+app.use('/api/comments', commentsRouter); 
 
 const PORT = process.env.PORT || 3000
 

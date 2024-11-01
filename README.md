@@ -1,28 +1,40 @@
 # Home Fuze
 
-![ERD](/images/ERD_Diagram.jpeg)
+
+
+![team](/images/Alpha%20Team.jpg)
+![outline](/images/IMG_3202.jpeg)
+![HomePage](/images/homePageFinale.jpg)
+![login](/images/wfLogin.jpg)
+![Reg](/images/registerWF.jpg)
+![wf](/images/wfHomeOwner.jpg)
+
+
+![ERD](/images/ERD%20Diagram%20Final.jpg)
 
 ## ***Team Barry:***
-* George Sein
-* Zaire Elleby
-* Pete McKechnie
-* Marquise Deadwiler
+* George Sein: Wire Frame, Back-End(Middleware), CSS, Comment job details component, Signin form, Debugging.
+
+* Zaire Elleby(Full-Stack Developer): CSS & Outline, Landing page component, and Debugging.
+
+* Pete McKechnie(Full-Stack Developer): Home owner and Contractor user stories, Back-End(Controllers, Models, Routes) && Front-End(Bid component, Post job componet, Debugging).
+
+* Marquise Deadwiler(Full-Stack Developer): Task Control(Jira), Back-End(Set up template, Controllers, Middleware) && Front-End(Set up template, Services, Navbar, Signup form, Debugging).
 
 ## ***About:***
-
 * Our project is a full-stack & job-posting platform that bridges the gap between homeowners and contractors for essential home services. With an intuitive interface, Home Fuze enables homeowners to post jobs for specific needs-like roofing, plumbing, electrical work, and remodeling. 
-* Now, contractors can then browsw these listings and submit competitive bids. This includes, pricing, timelines, and contract information.
+* Now, contractors can then browse these listings and submit competitive bids. This includes, pricing, timelines, and contract information.
 * Designed with comprehensive CRUD functionalities, Home Fuze allows users to create, update, and delete job posts, bids, and comments, fostering an efficient and transparent space for home improvement services.
 
 ***How it Started:***
-* This project was based on four entry level software engineers who wanted to build an impactful & practical application. Our goal was to address the communication challenges homeowners often face in finding reliable contractors, while giving contractors a centralized platform to access new job opportunities. With Home Fuze, we aimed to streamline the entire process-empowering homeowners and contractors to share job details, negotiate terms, and exchange feedback all in one place. Using our skills in React, MongoDB, and Express, we built Home Fuze to emphasize user-friendly navigation, organized data management, and a seamless bidding process that benefits all parties.
+* This project was built by a team of junior software engineers who wanted to develop a practical application that delivers a superior user experience while remaining secure, scalable and fully functional. Our goal was to address the challenges homeowners often face in finding reliable contractors, while giving contractors a centralized platform to access new job opportunities. With Home Fuze, we aimed to streamline the entire process-empowering homeowners and contractors to share job details, negotiate terms, and exchange feedback all in one place. Utilizing MongoDB, Express, React and Node.js, we built Home Fuze with an emphasis on user-friendly navigation, organized data management, and a seamless bidding process that benefits all parties.
 
-### ***Key Features***
+### ***Key Features:***
 * Job Posting & Management: Homeowners can create, update, and delete job posts for various services (roofing, plumbing, electrical, remodeling).
 
 * Contractor Bidding: Contractors can submit bids with estimated prices, timelines, and additional details, allowing for a competitive process.
 
-* Comments & Reviews: Both homeowners and contractors can post and view comments on job posts, enabling transparent communication and feedback.
+* Comments: Both homeowners and contractors can post and view comments on job posts, enabling transparent communication and feedback.
 
 * Data Organization: Pre-set categories simplify job posting, and all bids, comments, and contractor information are displayed on the job's page for easy navigation. 
 
@@ -47,6 +59,10 @@
 * Final Touches: Style UI, add feedback, test, and deploy (Heroku/Netlify).
 
 #### ***Future Enhancements***
+* Contractors work to showcase their work
+* Google verification 
+* In-advance payment method
+* Live video communication via Zoom & Google chat
 
 
 

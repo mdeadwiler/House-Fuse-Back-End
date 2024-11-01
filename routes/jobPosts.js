@@ -9,7 +9,7 @@ const router = Router();
 
 // Job Post Routes
 router.get("/", jobPostControllers.getJobPosts) // GET /api/jobPosts => Returns all Job Posts
-router.get("/:jobPostId", jobPostControllers.getJobPost); // GET /api/jobPosts/:jobPostId => Returns a Job Post with associated comments and bids [params]
+router.get("/:jobPostId", verifyToken, jobPostControllers.getJobPost); // GET /api/jobPosts/:jobPostId => Returns a Job Post with associated comments and bids [params]
 router.post("/", verifyToken, jobPostControllers.createJobPost); // POST /api/jobPosts - Creates a Job Post. [body]
 router.delete("/:jobPostId", authorizedUser, jobPostControllers.deleteJobPost); // DELETE /api/jobPosts/:jobPostId => Deletes Job Post. [params]
 router.put("/:jobPostId", authorizedUser, jobPostControllers.updateJobPost); // PUT /api/jobPosts/:jobPostId => Updates a Job Post. [params, body]
