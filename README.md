@@ -2,7 +2,8 @@
 
 
 
-
+![team](/images/Alpha%20Team.jpg)
+![outline](/images/IMG_3202.jpeg)
 ![HomePage](/images/homePageFinale.jpg)
 ![login](/images/wfLogin.jpg)
 ![Reg](/images/registerWF.jpg)
@@ -29,7 +30,7 @@
 ***How it Started:***
 * This project was based on four entry level software engineers who wanted to build an impactful & practical application. Our goal was to address the communication challenges homeowners often face in finding reliable contractors, while giving contractors a centralized platform to access new job opportunities. With Home Fuze, we aimed to streamline the entire process-empowering homeowners and contractors to share job details, negotiate terms, and exchange feedback all in one place. Using our skills in React, MongoDB, and Express, we built Home Fuze to emphasize user-friendly navigation, organized data management, and a seamless bidding process that benefits all parties.
 
-### ***Key Features***
+### ***Key Features:***
 * Job Posting & Management: Homeowners can create, update, and delete job posts for various services (roofing, plumbing, electrical, remodeling).
 
 * Contractor Bidding: Contractors can submit bids with estimated prices, timelines, and additional details, allowing for a competitive process.
