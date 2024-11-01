@@ -10,7 +10,7 @@
 ![wf](/images/wfHomeOwner.jpg)
 
 
-![ERD](/images/ERD_Diagram.jpeg)
+![ERD](/images/ERD%20Diagram%20Final.jpg)
 
 ## ***Team Barry:***
 * George Sein: Wire Frame, Back-End(Middleware), CSS, Comment job details component, Signin form, Debugging.
