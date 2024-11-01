@@ -22,13 +22,12 @@
 * Marquise Deadwiler(Full-Stack Developer): Task Control(Jira), Back-End(Set up template, Controllers, Middleware) && Front-End(Set up template, Services, Navbar, Signup form, Debugging).
 
 ## ***About:***
-
 * Our project is a full-stack & job-posting platform that bridges the gap between homeowners and contractors for essential home services. With an intuitive interface, Home Fuze enables homeowners to post jobs for specific needs-like roofing, plumbing, electrical work, and remodeling. 
 * Now, contractors can then browse these listings and submit competitive bids. This includes, pricing, timelines, and contract information.
 * Designed with comprehensive CRUD functionalities, Home Fuze allows users to create, update, and delete job posts, bids, and comments, fostering an efficient and transparent space for home improvement services.
 
 ***How it Started:***
-* This project was based on four entry level software engineers who wanted to build an impactful & practical application. Our goal was to address the communication challenges homeowners often face in finding reliable contractors, while giving contractors a centralized platform to access new job opportunities. With Home Fuze, we aimed to streamline the entire process-empowering homeowners and contractors to share job details, negotiate terms, and exchange feedback all in one place. Using our skills in React, MongoDB, and Express, we built Home Fuze to emphasize user-friendly navigation, organized data management, and a seamless bidding process that benefits all parties.
+* This project was built by a team of junior software engineers who wanted to develop a practical application that delivers a superior user experience while remaining secure, scalable and fully functional. Our goal was to address the challenges homeowners often face in finding reliable contractors, while giving contractors a centralized platform to access new job opportunities. With Home Fuze, we aimed to streamline the entire process-empowering homeowners and contractors to share job details, negotiate terms, and exchange feedback all in one place. Utilizing MongoDB, Express, React and Node.js, we built Home Fuze with an emphasis on user-friendly navigation, organized data management, and a seamless bidding process that benefits all parties.
 
 ### ***Key Features:***
 * Job Posting & Management: Homeowners can create, update, and delete job posts for various services (roofing, plumbing, electrical, remodeling).
